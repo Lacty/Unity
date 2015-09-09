@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-  [SerializeField]
   GameObject _tower;
   
   [SerializeField]
@@ -18,14 +17,15 @@ public class Enemy : MonoBehaviour {
   }
 
   void Start () {
-    Vector3 target = new Vector3(_tower.transform.position.x,
-                                 0.5f,
-                                 _tower.transform.position.z);
-    transform.LookAt(target);
+    _tower = GameObject.Find("Tower");
   }
 	
   void Update () {
     if (!_is_dead) {
+      Vector3 target = new Vector3(_tower.transform.position.x,
+                                 0.5f,
+                                 _tower.transform.position.z);
+      transform.LookAt(target);
       transform.Translate(_speed);
     }
     
