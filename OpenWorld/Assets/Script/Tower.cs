@@ -12,7 +12,14 @@ public class Tower : MonoBehaviour {
     set { _life = value; }
   }
 
-  void Start () {}
+  void Start() {}
 	
-  void Update () {}
+  void Update() {}
+  
+  void OnCollisionEnter(Collision collision) {
+    var enemy = collision.gameObject.GetComponent<Enemy>();
+    if (enemy == null) return;
+    
+    enemy.Hide();
+  }
 }

@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Enemy.cs" />
      <Compile Include="Assets\Script\GameCamera.cs" />
+     <Compile Include="Assets\Script\Ground.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Tower.cs" />
  <Reference Include="UnityEngine.Analytics">
