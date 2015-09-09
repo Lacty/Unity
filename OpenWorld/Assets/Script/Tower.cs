@@ -21,5 +21,6 @@ public class Tower : MonoBehaviour {
     if (enemy == null) return;
     
     enemy.Hide();
+    _life--;
   }
 }

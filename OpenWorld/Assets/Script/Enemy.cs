@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
   
   [SerializeField]
   int _effect_life;
+  int _effect_count;
   bool _is_dead;
 
   void Awake() {
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour {
 
   void Start () {
     _tower = GameObject.Find("Tower");
+    _effect_count = _effect_life;
   }
 	
   void Update () {
@@ -30,9 +32,11 @@ public class Enemy : MonoBehaviour {
     }
     
     if (!_is_dead) return;
-    _effect_life--;
-    
-    if (_effect_life > 0) return;
+    _effect_count--;
+    if (_effect_count < _effect_life * 0.6) {
+      GetComponent<ParticleSystem>().Stop();
+    }
+    if (_effect_count > 0) return;
     GameObject.Destroy(gameObject);
   }
   

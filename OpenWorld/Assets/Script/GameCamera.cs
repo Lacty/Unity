@@ -45,7 +45,8 @@ public class GameCamera : MonoBehaviour {
   }
   
   void Rotate() {
-    Vector3 dir = _player.transform.position - transform.position;
+    Vector3 offset = new Vector3(0, 1, 0);
+    Vector3 dir = (_player.transform.position + offset) - transform.position;
     transform.forward = dir;
   }
 }

@@ -27,6 +27,13 @@ public class Player : MonoBehaviour {
     Move();
     MouseDrag();
   }
+  
+  void OnCollisionEnter(Collision collision) {
+    var enemy = collision.gameObject.GetComponent<Enemy>();
+    if (enemy == null) return;
+    
+    enemy.Hide();
+  }
 	
   void Move() {
     if (Input.GetKey(KeyCode.A)) {
