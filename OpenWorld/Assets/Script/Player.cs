@@ -13,12 +13,6 @@ public class Player : MonoBehaviour {
   [SerializeField]
   Vector3 _speed;
   Vector3 _velocity;
-	
-  Vector3 _last_pos;
-  public Vector3 LastPos {
-    get { return _last_pos; }
-    set { _last_pos = value; }
-  }
   
   void Awake() {
     _is_target = true;

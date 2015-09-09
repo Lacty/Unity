@@ -27,10 +27,7 @@ public class GameCamera : MonoBehaviour {
 	
   void Move() {
     Vector3 offset = new Vector3(0, _offsetY, 0);
-    Vector3 translate = _player.transform.position - _player.GetComponent<Player>().LastPos;
-    //transform.position += translate;
     transform.position = _player.transform.position + offset - _direction * 6;
-    _player.GetComponent<Player>().LastPos = _player.transform.position;
   }
 	
   void SeekDirection() {
