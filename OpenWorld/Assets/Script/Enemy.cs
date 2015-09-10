@@ -29,6 +29,10 @@ public class Enemy : MonoBehaviour {
                                  _tower.transform.position.z);
       transform.LookAt(target);
       transform.Translate(_speed);
+      
+      if (_tower.GetComponent<Tower>().IsDead()) {
+        Hide();
+      }
     }
     
     if (!_is_dead) return;

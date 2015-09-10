@@ -4,6 +4,9 @@ using System.Collections;
 public class EnemyFactory : MonoBehaviour {
 
   [SerializeField]
+  Tower _tower;
+
+  [SerializeField]
   Enemy _enemy_prefab;
   
   [SerializeField]
@@ -13,6 +16,8 @@ public class EnemyFactory : MonoBehaviour {
   void Start () {}
   
   void Update () {
+    if (_tower.IsDead()) return;
+    
     _count++;
     
     if (_count < PopInterval) return;
