@@ -5,6 +5,9 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+  [SerializeField]
+  Tower _tower;
+
   bool _is_target;
 	
   Vector3 _target;
@@ -16,6 +19,8 @@ public class Player : MonoBehaviour {
   [SerializeField]
   float _sensitivity;
   
+  int _score;
+  
   void Awake() {
     _is_target = false;
     _target = Vector3.zero;
@@ -24,6 +29,7 @@ public class Player : MonoBehaviour {
   void Start() {}
 	
   void Update() {
+    if (_tower.IsDead()) return;
     Move();
     MouseDrag();
   }
@@ -33,6 +39,7 @@ public class Player : MonoBehaviour {
     if (enemy == null) return;
     
     enemy.Hide();
+    _score++;
   }
 	
   void Move() {
@@ -68,5 +75,9 @@ public class Player : MonoBehaviour {
 	
   public bool IsTarget() {
     return _is_target;
+  }
+  
+  public int GetScore() {
+    return _score;
   }
 }
