@@ -17,6 +17,8 @@ public class GameSystem : MonoBehaviour {
   
   [SerializeField]
   Player _player;
+  
+  bool _is_play_se = false;
 
   void Start () {}
 	
@@ -25,9 +27,14 @@ public class GameSystem : MonoBehaviour {
     
     if (!_tower.IsDead()) return;
     
+    if (!_is_play_se) {
+      GetComponent<AudioSource>().Play();
+      _is_play_se = true;
+    }
+    
     _finish.GetComponent<Canvas>().enabled = true;
     
-    if (Input.anyKeyDown) {
+    if (Input.GetKeyDown(KeyCode.Return)) {
       Application.LoadLevel(0);
       _finish.GetComponent<Canvas>().enabled = false;
     }

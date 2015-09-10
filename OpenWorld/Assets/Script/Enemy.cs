@@ -47,5 +47,7 @@ public class Enemy : MonoBehaviour {
   public void Hide() {
     _is_dead = true;
     GetComponent<ParticleSystem>().Play();
+    //cloneしたオブジェクトから音を鳴らす方法がわからなかったためコメントアウト
+    //GetComponent<AudioSource>().Play();
   }
 }
